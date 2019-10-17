@@ -177,7 +177,9 @@ namespace BusCache.Client
                     if (Client != null)
                     {
                         Client.Close();
-                        Client.Dispose();
+#if !NET45
+                        Client?.Dispose();
+#endif
                     }
                     cts?.Dispose();
                     disposed = true;
