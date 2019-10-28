@@ -15,6 +15,7 @@ namespace BusCache.Client
 {
     public class Connect : IConnect
     {
+        private readonly object objSend = new object();
         private TcpClient Client { get; }
         private ILogger<Connect> Logger { get; }
         public ServerOptions ServerOptions { get; }
@@ -57,7 +58,7 @@ namespace BusCache.Client
                     Client.Connect(ServerOptions.IP, ServerOptions.Port);
                 });
 
-            Task thread = new Task(async () => await ReceiveData(Client).ConfigureAwait(false), cts.Token);
+            Task thread = new Task(() => ReceiveData(Client), cts.Token);
 
             thread.Start();
             SendData($"rg {ServerOptions.ServiceName}");
@@ -76,9 +77,17 @@ namespace BusCache.Client
         public void SendData(string Data)
         {
             if (!Client.Connected) return;
-            NetworkStream ns = Client.GetStream();
-            byte[] buffer = Encoding.ASCII.GetBytes(Data + Environment.NewLine);
-            ns.Write(buffer, 0, buffer.Length);
+            lock (objSend)
+            {
+                NetworkStream ns = Client.GetStream();
+                byte[] buffer = Encoding.ASCII.GetBytes(string.Concat(Data, "\n"));
+                ns.Write(buffer, 0, buffer.Length);
+            }
+            Thread.Sleep(ServerOptions.TimeoutSendComand);
+        }
+        public void Execute(string Command)
+        {
+            SendData(Command);
         }
         /// <summary>
         /// Envia dados para o servidor
@@ -114,7 +123,7 @@ namespace BusCache.Client
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        private async Task ReceiveData(TcpClient client)
+        private void ReceiveData(TcpClient client)
         {
             NetworkStream stream = null;
             StreamReader sr = null;
@@ -127,8 +136,7 @@ namespace BusCache.Client
                     try
                     {
                         sr = new StreamReader(stream);
-                        Text = await sr.ReadLineAsync().ConfigureAwait(false);
-
+                        Text = sr.ReadLine();
                     }
                     catch (IOException ex)
                     {

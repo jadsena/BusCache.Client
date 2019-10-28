@@ -9,5 +9,9 @@ namespace BusCache.Client.Options
         public string IP { get; set; }
         public int Port { get; set; }
         public string ServiceName { get; set; }
+        /// <summary>
+        /// TimeoutSendComand in milliseconds
+        /// </summary>
+        public int TimeoutSendComand { get; set; }
     }
 }

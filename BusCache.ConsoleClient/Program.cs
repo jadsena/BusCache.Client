@@ -32,7 +32,11 @@ namespace BusCache.ConsoleClient
             string strjson = JsonConvert.SerializeObject(keys);
 
             using Program p = new Program();
-            p.Set("Teste", strjson);
+            Console.WriteLine("ls");
+            p.Execute("ls");
+            Console.WriteLine("Set");
+            p.Set("Teste", "test");
+            Console.WriteLine("Get");
             p.Get("Teste");
 
             Console.ReadKey();
@@ -60,6 +64,10 @@ namespace BusCache.ConsoleClient
         public void Get(string key)
         {
             Connect.GetKey(key);
+        }
+        public void Execute(string command)
+        {
+            Connect.Execute(command);
         }
         private void Configure()
         {
