@@ -1,5 +1,5 @@
 # BusCache.Client
-Cliente de conexão .Net Standard com o server BusCache
+Cliente de conexão .Net Standard com o server [BusCache](https://github.com/jadsena/BusCache)
 
 ## Adicionando o pacote nuget
 1. Via Package Manager
@@ -43,7 +43,7 @@ Cliente de conexão .Net Standard com o server BusCache
   }
 }
 ```
-## Usando o Client para enviar dados para o BusCache Server
+## Usando o Client para enviar dados para o [BusCache](https://github.com/jadsena/BusCache) Server
 1. Na classe program existe todo o codigo para instanciar um serviço via DependencyInjection e o mesmo pode ser utilizado assim:
 ```
             using Program p = new Program();
@@ -55,7 +55,7 @@ Cliente de conexão .Net Standard com o server BusCache
             p.Get("Teste");
 
 ```
-2. A classe Service1, está servindo como proxy para o serviço Connect que enviar e recebe dados od servidor BusCache
+2. A classe Service1, está servindo como proxy para o serviço Connect que enviar e recebe dados od servidor [BusCache](https://github.com/jadsena/BusCache)
 ```
     public class Service1 : IDisposable
     {
