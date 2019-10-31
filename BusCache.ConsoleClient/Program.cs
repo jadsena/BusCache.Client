@@ -14,7 +14,7 @@ namespace BusCache.ConsoleClient
         private IConfiguration Config { get; set; }
         private ILogger<Program> Logger { get; set; }
         private ServiceProvider Provider { get; }
-        private IConnect Connect { get; }
+        private Service1 Service { get; }
 
         static void Main(string[] args)
         {
@@ -35,7 +35,7 @@ namespace BusCache.ConsoleClient
             Console.WriteLine("ls");
             p.Execute("ls");
             Console.WriteLine("Set");
-            p.Set("Teste", "test");
+            p.Set("Teste", strjson);
             Console.WriteLine("Get");
             p.Get("Teste");
 
@@ -48,8 +48,8 @@ namespace BusCache.ConsoleClient
             ConfigureServices(serviceCollection);
             Provider = serviceCollection.BuildServiceProvider();
             Logger = Provider.GetService<ILoggerFactory>().CreateLogger<Program>();
-            Connect = Provider.GetService<IConnect>();
-            Connect.Receive += Connect_Receive;
+            Service = Provider.GetService<Service1>();
+            Service.Receive += Connect_Receive;
         }
 
         private void Connect_Receive(object sender, string e)
@@ -59,15 +59,15 @@ namespace BusCache.ConsoleClient
 
         public void Set(string key, string value)
         {
-            Connect.SetKey(key, value);
+            Service.Set(key, value);
         }
         public void Get(string key)
         {
-            Connect.GetKey(key);
+            Service.Get(key);
         }
         public void Execute(string command)
         {
-            Connect.Execute(command);
+            Service.Execute(command);
         }
         private void Configure()
         {
@@ -84,6 +84,7 @@ namespace BusCache.ConsoleClient
             });
             services.AddOptions();
             services.AddBusCacheClient(Config.GetSection("ServerOptions"));
+            services.AddTransient<Service1>();
         }
 
         public void Dispose()
@@ -94,9 +95,10 @@ namespace BusCache.ConsoleClient
 
         protected virtual void Dispose(bool dispose)
         {
-            if(dispose)
-                Connect.Dispose();
-
+            if (dispose)
+            {
+                Service.Dispose();
+            }
         }
     }
 }
