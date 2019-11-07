@@ -49,3 +49,9 @@ steps:
     nuGetFeedType: 'internal'
     publishVstsFeed: '35bdd896-b0e6-488a-af38-e73424349d30'
     allowPackageConflicts: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
