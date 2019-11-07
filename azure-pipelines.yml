@@ -32,3 +32,17 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '**/bin/$(BuildConfiguration)/**'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
+
+- task: PublishPipelineArtifact@1
+  displayName: 'publish nupkg files'
+  inputs:
+    targetPath: '$(build.artifactstagingdirectory)/**/*.nupkg'
+    artifact: 'buscache_artifacts'
+    publishLocation: 'pipeline'
