@@ -1,3 +1,5 @@
+[![Build Status](https://jadsena.visualstudio.com/BusCache/_apis/build/status/jadsena.BusCache.Client?branchName=master)](https://jadsena.visualstudio.com/BusCache/_build/latest?definitionId=5&branchName=master)
+
 # BusCache.Client
 Cliente de conexão .Net Standard com o server [BusCache](https://github.com/jadsena/BusCache)
 
