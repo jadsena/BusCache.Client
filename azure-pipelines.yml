@@ -32,11 +32,3 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: NuGetCommand@2
-  displayName: 'NuGet push'
-  inputs:
-    command: 'push'
-    packagesToPush: '**/*.nupkg;**/*.symbols.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: 'b57df252-77f8-4794-a113-229750abe43e'
-    allowPackageConflicts: true
