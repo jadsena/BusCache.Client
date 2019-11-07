@@ -33,9 +33,10 @@ steps:
     configuration: '$(buildConfiguration)'
 
 - task: NuGetCommand@2
+  displayName: 'NuGet push'
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.BusCache.Client*.nupkg'
+    packagesToPush: '**/*.nupkg;**/*.symbols.nupkg'
     nuGetFeedType: 'internal'
     publishVstsFeed: 'b57df252-77f8-4794-a113-229750abe43e'
     allowPackageConflicts: true
