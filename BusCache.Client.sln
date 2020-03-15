@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusCache.Client", "BusCache
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusCache.ConsoleClient", "BusCache.ConsoleClient\BusCache.ConsoleClient.csproj", "{2703FA0F-D5B2-45FF-8949-EAFBB776A36F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusCache.Client.Test", "BusCache.Client.Test\BusCache.Client.Test.csproj", "{37D3E8CD-7CAB-43C1-A43E-C5C975C9190B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusCache.ClientTests", "BusCache.ClientTests\BusCache.ClientTests.csproj", "{CEA72AA4-9244-445D-9F98-4EDCFF3D0E87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{2703FA0F-D5B2-45FF-8949-EAFBB776A36F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2703FA0F-D5B2-45FF-8949-EAFBB776A36F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2703FA0F-D5B2-45FF-8949-EAFBB776A36F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37D3E8CD-7CAB-43C1-A43E-C5C975C9190B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37D3E8CD-7CAB-43C1-A43E-C5C975C9190B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37D3E8CD-7CAB-43C1-A43E-C5C975C9190B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37D3E8CD-7CAB-43C1-A43E-C5C975C9190B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEA72AA4-9244-445D-9F98-4EDCFF3D0E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEA72AA4-9244-445D-9F98-4EDCFF3D0E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEA72AA4-9244-445D-9F98-4EDCFF3D0E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEA72AA4-9244-445D-9F98-4EDCFF3D0E87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
