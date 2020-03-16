@@ -6,7 +6,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>BusCache.Client.snk</AssemblyOriginatorKeyFile>
-    <Version>0.2.2</Version>
+    <Version>0.2.3</Version>
     <Authors>Jean A. Sena</Authors>
     <Company>jadsena</Company>
     <Description>Cliente para conexão com o servidor BusCache</Description>
