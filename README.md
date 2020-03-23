@@ -1,5 +1,9 @@
 [![Build Status](https://jadsena.visualstudio.com/BusCache/_apis/build/status/jadsena.BusCache.Client?branchName=master)](https://jadsena.visualstudio.com/BusCache/_build/latest?definitionId=5&branchName=master) 
 ![GitHub](https://img.shields.io/github/license/jadsena/BusCache.Client?style=flat-square)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/jadsena/BusCache.Client)
+![Nuget](https://img.shields.io/nuget/dt/BusCache.Client)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/jadsena/BusCache.Client)
+![Nuget](https://img.shields.io/nuget/v/BusCache.Client)
 
 # BusCache.Client
 Cliente de conexão .Net Standard com o server [BusCache](https://github.com/jadsena/BusCache)
