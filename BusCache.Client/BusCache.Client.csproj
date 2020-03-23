@@ -6,7 +6,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>BusCache.Client.snk</AssemblyOriginatorKeyFile>
-    <Version>0.2.4</Version>
+    <Version>0.2.5</Version>
     <Authors>Jean A. Sena</Authors>
     <Company>jadsena</Company>
     <Description>Cliente para conexão com o servidor BusCache</Description>
@@ -18,8 +18,8 @@
     <PackageReleaseNotes>Novos frameworks disponíveis</PackageReleaseNotes>
     <PackageIcon>nuget.png</PackageIcon>
     <PackageIconUrl />
-    <AssemblyVersion>0.2.4.0</AssemblyVersion>
-    <FileVersion>0.2.4.0</FileVersion>
+    <AssemblyVersion>0.2.5.0</AssemblyVersion>
+    <FileVersion>0.2.5.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
